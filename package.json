@@ -1,0 +1,25 @@
+{
+  "name": "agg-js",
+  "version": "0.0.1",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/takanoriyanagitani/agg-js.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/takanoriyanagitani/agg-js/issues"
+  },
+  "homepage": "https://github.com/takanoriyanagitani/agg-js#readme",
+  "devDependencies": {
+    "chromedriver": "^81.0.0",
+    "jest": "^25.5.4",
+    "selenium-webdriver": "^4.0.0-alpha.7"
+  }
+}
