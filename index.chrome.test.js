@@ -24,11 +24,11 @@ describe("d1", () => {
     .then(b => Object.assign(state, {browser: b}))
     .then(s => s.browser)
     .then(b => b.get("https://google.com"))
-  )
+  , 16384)
 
   afterAll(() => Promise.resolve(state.browser)
     .then(b => b.quit())
-  )
+  , 16384)
 
   test("t1", () => {
     return Promise.resolve(state.browser)
