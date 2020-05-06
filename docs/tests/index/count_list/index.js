@@ -27,7 +27,7 @@
     tr.appendChild(build_td(dei.e))
 
     const result = dei.o === dei.e
-    state.result &&= result
+    state.result = state.result && result || false
     tr.appendChild(build_td(result ? "OK" : "NG"))
 
     test.appendChild(tr)
