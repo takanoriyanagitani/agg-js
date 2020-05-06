@@ -23,7 +23,7 @@ describe("d1", () => {
     .then(b => b.build())
     .then(b => Object.assign(state, {browser: b}))
     .then(s => s.browser)
-    .then(b => b.get("https://google.com"))
+    .then(b => b.get("https://takanoriyanagitani.github.io/agg-js/docs/tests/index/count_list/index.html"))
   , 16384)
 
   afterAll(() => Promise.resolve(state.browser)
@@ -33,7 +33,15 @@ describe("d1", () => {
   test("t1", () => {
     return Promise.resolve(state.browser)
     .then(b => b.getTitle())
-    .then(t => expect(t).toEqual("Google"))
+    .then(t => JSON.parse(t))
+    .then(result => {
+      const {
+	total,
+	ok,
+	ng,
+      } = result
+      expect(total).toBe(ok)
+    })
   }, 16384)
 
 })
