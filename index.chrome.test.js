@@ -11,7 +11,7 @@ const opt = new chrome.Options()
 
 const copt = opt.headless()
 
-describe("d1", () => {
+describe("chrome", () => {
 
   const state = {
     browser: null,
@@ -22,16 +22,16 @@ describe("d1", () => {
     .then(b => b.setChromeOptions(copt))
     .then(b => b.build())
     .then(b => Object.assign(state, {browser: b}))
-    .then(s => s.browser)
-    .then(b => b.get("https://takanoriyanagitani.github.io/agg-js/docs/tests/index/count_list/index.html"))
   , 16384)
 
   afterAll(() => Promise.resolve(state.browser)
     .then(b => b.quit())
   , 16384)
 
-  test("t1", () => {
+  test("count_list", () => {
     return Promise.resolve(state.browser)
+    .then(b => b.get("https://takanoriyanagitani.github.io/agg-js/docs/tests/index/count_list/index.html"))
+    .then(_ => state.browser)
     .then(b => b.getTitle())
     .then(t => JSON.parse(t))
     .then(result => {
