@@ -8,11 +8,13 @@
     return td
   }
 
-  [
+  const l = [
     {e:0, d: "empty",  i: []},
     {e:1, d: "single", i: [42]},
     {e:2, d: "double", i: [634,333]},
-  ].forEach(function(dei){
+  ]
+
+  l.forEach(function(dei){
     dei.o = count_list(dei.i)
 
     const tr = document.createElement("tr")
