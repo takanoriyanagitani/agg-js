@@ -14,6 +14,8 @@
     {e:2, d: "double", i: [634,333]},
   ]
 
+  const state = { result: true }
+
   l.forEach(function(dei){
     dei.o = count_list(dei.i)
 
@@ -23,9 +25,14 @@
     tr.appendChild(build_td(dei.i))
     tr.appendChild(build_td(dei.o))
     tr.appendChild(build_td(dei.e))
-    tr.appendChild(build_td(dei.o === dei.e ? "OK" : "NG"))
+
+    const result = dei.o === dei.e
+    state.result &&= result
+    tr.appendChild(build_td(result ? "OK" : "NG"))
 
     test.appendChild(tr)
   })
+
+  document.getElementById("result").textContent = state.result ? "OK" : "NG"
 
 })(document.getElementById("test"))
