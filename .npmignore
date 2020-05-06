@@ -1,0 +1,5 @@
+.github
+docs
+*.test.js
+index.html
+jest.config.js
