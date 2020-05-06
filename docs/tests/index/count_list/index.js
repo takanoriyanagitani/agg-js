@@ -9,21 +9,19 @@
   }
 
   [
-    ["empty",  0, []],
-    ["single", 1, [42]],
-    ["double", 2, [634, 333]],
+    {e:0, d: "empty",  i: []},
+    {e:1, d: "single", i: [42]},
+    {e:2, d: "double", i: [634,333]},
   ].forEach(function(dei){
-    const description = dei[0]
-    const expected    = dei[1]
-    const input       = dei[2]
-    const output      = count_list(input)
+    dei.o = count_list(dei.i)
 
     const tr = document.createElement("tr")
-    tr.appendChild(build_td(description))
-    tr.appendChild(build_td(input))
-    tr.appendChild(build_td(output))
-    tr.appendChild(build_td(expected))
-    tr.appendChild(build_td(input === output ? "OK" : "NG"))
+
+    tr.appendChild(build_td(dei.d))
+    tr.appendChild(build_td(dei.i))
+    tr.appendChild(build_td(dei.o))
+    tr.appendChild(build_td(dei.e))
+    tr.appendChild(build_td(dei.o === dei.e ? "OK" : "NG"))
 
     test.appendChild(tr)
   })
