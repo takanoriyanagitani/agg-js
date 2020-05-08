@@ -1,6 +1,6 @@
 {
   "name": "agg-js",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "compute count/sum/avg...",
   "main": "index.js",
   "scripts": {

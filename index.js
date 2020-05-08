@@ -19,6 +19,16 @@
 e.count_list = function(l){ return l.length }
 
 const count_iterator_ie11 = function(i){
+  const state = { cnt: 0 }
+  while(true){
+    const next = i.next()
+    const done = next.done
+    switch(done){
+      case true: return state.cnt
+    }
+    state.cnt++
+  }
+  return state.cnt
 }
 
 const count_iterator_browser = function(i){
