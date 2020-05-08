@@ -23,7 +23,14 @@ const count_iterator_ie11 = function(i){
 
 const count_iterator_browser = function(i){
   const state = { cnt: 0 }
-  for(const j of i) state.cnt++
+  while(true){
+    const next = i.next()
+    const done = next.done
+    switch(done){
+      case true: return state.cnt
+    }
+    state.cnt++
+  }
   return state.cnt
 }
 
