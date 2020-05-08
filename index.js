@@ -18,4 +18,20 @@
 
 e.count_list = function(l){ return l.length }
 
+const count_iterator_ie11 = function(i){
+}
+
+const count_iterator_browser = function(i){
+  const state = { cnt: 0 }
+  for(const j of i) state.cnt++
+  return state.cnt
+}
+
+e.count_iterator = (function(tos){
+  switch(tos){
+    case "undefined": return count_iterator_ie11
+    default:          return count_iterator_browser
+  }
+})(typeof Symbol)
+
 }))

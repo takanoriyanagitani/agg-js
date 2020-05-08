@@ -44,4 +44,20 @@ describe("chrome", () => {
     })
   }, 16384)
 
+  test("count_iterator", () => {
+    return Promise.resolve(state.browser)
+    .then(b => b.get("https://takanoriyanagitani.github.io/agg-js/docs/tests/index/count_iterator/index.html"))
+    .then(_ => state.browser)
+    .then(b => b.getTitle())
+    .then(t => JSON.parse(t))
+    .then(result => {
+      const {
+	total,
+	ok,
+	ng,
+      } = result
+      expect(total).toBe(ok)
+    })
+  }, 16384)
+
 })
